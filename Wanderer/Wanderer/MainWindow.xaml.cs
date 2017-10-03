@@ -26,6 +26,9 @@ namespace Wanderer
 
             Map map = new Map();
             map.MapCreator(foxDraw);
+
+            Hero hero = new Hero();
+            hero.HeroAdder(foxDraw);
         }
         
         private void WindowKeyDown(object sender, KeyEventArgs e)
