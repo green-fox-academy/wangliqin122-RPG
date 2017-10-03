@@ -17,7 +17,7 @@ namespace Wanderer
         private int y = 0;
         private int size = 50;
 
-        private static List<bool[]> bricks = new List<bool[]>()
+        public static List<bool[]> bricks = new List<bool[]>()
         {
         new bool [] {true, true, true, false, true, false, true, true, true, true},
         new bool [] {true, true, true, false, true, false, true, false, false, true},

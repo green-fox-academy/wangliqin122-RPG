@@ -29,6 +29,8 @@ namespace Wanderer
 
             Hero hero = new Hero();
             hero.HeroAdder(foxDraw);
+
+           
         }
         
         private void WindowKeyDown(object sender, KeyEventArgs e)
@@ -37,16 +39,16 @@ namespace Wanderer
             InitializeComponent();
             var foxDraw = new FoxDraw(canvas);
 
-            if (e.Key == Key.Left)
-            {
-
-                hero.MoveLeft(foxDraw);
-            }
-
-            //if (e.Key == Key.Right)
+            //if (e.Key == Key.Left)
             //{
-            //    Console.WriteLine("To the right!");
+
+            //    hero.MoveLeft(foxDraw);
             //}
+
+            if (e.Key == Key.Right)
+            {
+                hero.MoveRight(foxDraw);
+            }
             //if ((e.Key == Key.Up)
             //{
 

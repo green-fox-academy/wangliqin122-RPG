@@ -7,21 +7,25 @@ using GreenFox;
 
 namespace Wanderer
 {
-    class Hero 
+    class Hero : Map
     {
         private string heroImage = @"./Asset/hero-down.png";
-        private int x = 0;
-        private int y = 0;
+        private int startX = 50;
+        private int startY = 50;
         private int size = 50;
-  
+
         public void HeroAdder(FoxDraw foxDraw)
         {
-            foxDraw.AddImage(heroImage, x + size, y + size);   
+            foxDraw.AddImage(heroImage, startX, startY);   
         }
 
-        public void MoveLeft(FoxDraw foxDraw)
+        public void MoveRight(FoxDraw foxDraw)
         {
-            
+            if (bricks[,] == true)
+            {
+
+            }
+                foxDraw.AddImage(heroImage, startX + size, startY);
         }
     }
 }
