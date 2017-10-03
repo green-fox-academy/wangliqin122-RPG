@@ -7,24 +7,21 @@ using GreenFox;
 
 namespace Wanderer
 {
-    class Hero : Character
+    class Hero 
     {
-
         private string heroImage = @"./Asset/hero-down.png";
-        private string name;
         private int x = 0;
         private int y = 0;
         private int size = 50;
-
-        public Hero()
-        {
-            this.name = "mario";
-        }
-         
+  
         public void HeroAdder(FoxDraw foxDraw)
         {
-            foxDraw.AddImage(heroImage, x, y + size);   
+            foxDraw.AddImage(heroImage, x + size, y + size);   
         }
 
+        public void MoveLeft(FoxDraw foxDraw)
+        {
+            
+        }
     }
 }

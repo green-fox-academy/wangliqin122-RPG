@@ -11,61 +11,45 @@ namespace Wanderer
 {
     public class Map
     {
-        private string image = @"./Asset/floor.png";
+        private string tile = @"./Asset/floor.png";
         private string wall = @"./Asset/wall.png";
         private int x = 0;
         private int y = 0;
         private int size = 50;
 
-        private List<int[]> bricks = new List<int[]>()
+        private static List<bool[]> bricks = new List<bool[]>()
         {
-        new int[] {150, 50},
-        new int[] {250, 50},
-        new int[] {150, 100},
-        new int[] {250, 100},
-        new int[] {350, 100},
-        new int[] {400, 100},
-        new int[] {50, 150},
-        new int[] {100, 150},
-        new int[] {150, 150},
-        new int[] {250, 150},
-        new int[] {350, 150},
-        new int[] {400, 150},
-        new int[] {250, 200},
-        new int[] {0, 250},
-        new int[] {50, 250},
-        new int[] {100, 250},
-        new int[] {150, 250},
-        new int[] {250, 250},
-        new int[] {300, 250},
-        new int[] {350, 250},
-        new int[] {400, 250},
-        new int[] {50, 300},
-        new int[] {150, 300},
-        new int[] {400, 300},
-
-
-
+        new bool [] {true, true, true, false, true, false, true, true, true, true},
+        new bool [] {true, true, true, false, true, false, true, false, false, true},
+        new bool [] {true, false, false, false, true, false, true, false, false, true},
+        new bool [] {true, true, true, true, true, false, true, true, true, true},
+        new bool [] {false, false, false, false, true, false, false, false, false, true},
+        new bool [] {true, false, true, false, true, true, true, true, false, true},
+        new bool [] {true, false, true, false, true, false, false, false, true, true},
+        new bool [] {true, true, true, true, true, false, false, true, false, true},
+        new bool [] {true, false, false, false, true, true, true, true, false, true},
+        new bool [] {true, true, true, false, true, false, false, true, true, true},
         };
 
         public void MapCreator(FoxDraw foxDraw)
         {
             for (int i = 0; i < 10; i++)
-            {   
+            {
                 y += size;
                 x = 0;
                 for (int j = 0; j < 10; j++)
                 {
-                    foxDraw.AddImage(image, x, y);
                     x += size;
+                    if (bricks[i][j] == true)
+                    {
+                        foxDraw.AddImage(tile, x, y);
+                    }
+                    else
+                    {
+                        foxDraw.AddImage(wall, x, y);
+                    }
                 }
             }
-
-            for (int k = 0; k < bricks.Count; k++)
-            {
-                foxDraw.AddImage(wall, bricks[k][0], bricks[k][1]);
-            }
- 
         }
     }
 }
