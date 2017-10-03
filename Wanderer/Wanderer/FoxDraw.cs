@@ -12,6 +12,7 @@ namespace GreenFox
     {
         private const int TILEWIDTH = 50;
         private const int TILEHEIGHT = 50;
+        private FoxDraw canvas;
 
         private Canvas Canvas { get; set; }
         private SolidColorBrush LineColor { get; set; } = SystemColors.WindowFrameBrush;
@@ -20,6 +21,11 @@ namespace GreenFox
         public FoxDraw(Canvas canvas)
         {
             Canvas = canvas;
+        }
+
+        public FoxDraw(FoxDraw canvas)
+        {
+            this.canvas = canvas;
         }
 
         public void BackgroundColor(Color color)
