@@ -21,6 +21,8 @@ namespace Wanderer
         public MainWindow()
         {
             InitializeComponent();
+
+            foxDraw.AddImage(imagesource, x, y);
         }
     }
 }
