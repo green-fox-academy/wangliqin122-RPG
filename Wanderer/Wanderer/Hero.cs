@@ -16,6 +16,7 @@ namespace Wanderer
         private int startX = 50;
         private int startY = 50;
         private int size = 50;
+        private int max = 500;
 
         public void HeroAdder(FoxDraw foxDraw)
         {
@@ -24,26 +25,39 @@ namespace Wanderer
 
         public void MoveRight(FoxDraw foxDraw)
         {
-            startX += size;
+            if (startX < max)
+            {
+                startX += size;
+            }
             foxDraw.AddImage(heroRight, startX, startY);
         }
 
         public void MoveLeft(FoxDraw foxDraw)
         {
-            startX -= size;
+            if (startX > size)
+            {
+                startX -= size;
+            }             
             foxDraw.AddImage(heroLeft, startX, startY);
         }
 
         public void MoveDown(FoxDraw foxDraw)
         {
-             startY += size;
-             foxDraw.AddImage(heroImage, startX, startY);
+            if (startY < max)
+            {
+                startY += size;
+            }
+            foxDraw.AddImage(heroImage, startX, startY);
         }      
 
         public void MoveUp(FoxDraw foxDraw)
         {
-              startY -= size;
-              foxDraw.AddImage(heroUp, startX, startY);
+
+            if (startY > size)
+            {
+                startY -= size;
+            }
+            foxDraw.AddImage(heroUp, startX, startY);
         }
     }
 }
