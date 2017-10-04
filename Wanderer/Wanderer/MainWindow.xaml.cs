@@ -14,49 +14,47 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GreenFox;
 
-
 namespace Wanderer
 {
     public partial class MainWindow : Window
-    {
+    {   
+        FoxDraw foxDraw;
+        Map map;
+        Hero hero;
+
         public MainWindow()
         {
             InitializeComponent();
-            var foxDraw = new FoxDraw(canvas);
+            foxDraw = new FoxDraw(canvas);
+            map = new Map();
+            hero = new Hero();
 
-            Map map = new Map();
             map.MapCreator(foxDraw);
-
-            Hero hero = new Hero();
             hero.HeroAdder(foxDraw);
-
-           
         }
         
         private void WindowKeyDown(object sender, KeyEventArgs e)
-        {
-            Hero hero = new Hero();
-            InitializeComponent();
-            var foxDraw = new FoxDraw(canvas);
+        {          
+            map = new Map();
+            map.MapCreator(foxDraw);
 
-            //if (e.Key == Key.Left)
-            //{
-
-            //    hero.MoveLeft(foxDraw);
-            //}
+            if (e.Key == Key.Left)
+            {
+                hero.MoveLeft(foxDraw);
+            }
 
             if (e.Key == Key.Right)
             {
                 hero.MoveRight(foxDraw);
             }
-            //if ((e.Key == Key.Up)
-            //{
-
-            //}
-            //if ((e.Key == Key.Down)
-            //{
-
-            //}
+            if (e.Key == Key.Up)
+            {
+                hero.MoveUp(foxDraw);
+            }
+            if (e.Key == Key.Down)
+            {
+                hero.MoveDown(foxDraw);
+            }
         }
     }
 }
