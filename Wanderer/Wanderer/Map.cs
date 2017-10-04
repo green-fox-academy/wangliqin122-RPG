@@ -16,6 +16,7 @@ namespace Wanderer
         private int x = 0;
         private int y = 0;
         private int size = 50;
+        private int max = 500;
 
         public List<bool[]> bricks = new List<bool[]>()
         {
@@ -49,7 +50,11 @@ namespace Wanderer
                         foxDraw.AddImage(wall, x, y);
                     }
                 }
-            }
+            }          
+        }
+        public bool IsInMap()
+        {
+            return !(x > max || y > max || y < 0 || x < 0);
         }
     }
 }

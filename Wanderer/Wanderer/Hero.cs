@@ -18,16 +18,24 @@ namespace Wanderer
         private int size = 50;
         private int max = 500;
 
+        Map map = new Map();
+        Character character = new Character();
+
+        public bool IsInMap()
+        {
+            return (startX < max || startY < max || startY > 0 || startX > 0);
+        }
+
         public void HeroAdder(FoxDraw foxDraw)
         {
-            foxDraw.AddImage(heroImage, startX, startY);   
+            foxDraw.AddImage(heroImage, startX, startY);
         }
 
         public void MoveRight(FoxDraw foxDraw)
-        {
-            if (startX < max)
+        { 
+            if (!IsInMap()/*startX < max*/)
             {
-                startX += size;
+                startX += size;  
             }
             foxDraw.AddImage(heroRight, startX, startY);
         }
@@ -52,7 +60,6 @@ namespace Wanderer
 
         public void MoveUp(FoxDraw foxDraw)
         {
-
             if (startY > size)
             {
                 startY -= size;
