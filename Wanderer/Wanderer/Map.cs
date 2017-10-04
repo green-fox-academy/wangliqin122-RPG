@@ -26,7 +26,7 @@ namespace Wanderer
         new bool [] {true, true, true, true, true, false, true, true, true, true},
         new bool [] {false, false, false, false, true, false, false, false, false, true},
         new bool [] {true, false, true, false, true, true, true, true, false, true},
-        new bool [] {true, false, true, false, true, false, false, false, true, true},
+        new bool [] {true, false, true, false, true, false, false, true, true, true},
         new bool [] {true, true, true, true, true, false, false, true, false, true},
         new bool [] {true, false, false, false, true, true, true, true, false, true},
         new bool [] {true, true, true, false, true, false, false, true, true, true},

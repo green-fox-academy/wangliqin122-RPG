@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GreenFox;
+﻿using GreenFox;
 
 namespace Wanderer
 {
@@ -19,12 +14,11 @@ namespace Wanderer
         private int max = 500;
 
         Map map = new Map();
-        Character character = new Character();
 
-        public bool IsInMap()
-        {
-            return (startX < max || startY < max || startY > 0 || startX > 0);
-        }
+        //public bool IsInMap()
+        //{
+        //    return !(startX > max || startY > max || startY < 0 || startX < 0);
+        //}
 
         public void HeroAdder(FoxDraw foxDraw)
         {
@@ -33,7 +27,7 @@ namespace Wanderer
 
         public void MoveRight(FoxDraw foxDraw)
         { 
-            if (!IsInMap()/*startX < max*/)
+            if (startX < max && map.bricks[(startY-50)/size][(startX-50)/size + 1])
             {
                 startX += size;  
             }
@@ -42,7 +36,7 @@ namespace Wanderer
 
         public void MoveLeft(FoxDraw foxDraw)
         {
-            if (startX > size)
+            if (startX > size && map.bricks[(startY-50)/size][(startX-50)/size - 1])
             {
                 startX -= size;
             }             
@@ -51,7 +45,7 @@ namespace Wanderer
 
         public void MoveDown(FoxDraw foxDraw)
         {
-            if (startY < max)
+            if (startY < max && map.bricks[(startY-50)/size + 1][(startX-50)/size])
             {
                 startY += size;
             }
@@ -60,7 +54,7 @@ namespace Wanderer
 
         public void MoveUp(FoxDraw foxDraw)
         {
-            if (startY > size)
+            if (startY > size && map.bricks[(startY-50)/size - 1][(startX-50)/size])
             {
                 startY -= size;
             }
